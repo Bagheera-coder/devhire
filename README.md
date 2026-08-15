@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DevHire
 
 A modern, high-performance job discovery and application tracking frontend built with React. DevHire demonstrates professional-grade UI/UX design, complex state management without external libraries, and robust client-side architecture.
@@ -92,3 +93,6 @@ This project runs completely locally, but an `.env.example` file is provided to 
 * **Authentication:** Implement real user login using OAuth/JWT instead of the current mock UI flow.
 * **Real Job Provider API:** Integrate with a third-party job board API (like Reed or Adzuna) to fetch live job listings.
 * **Drag and Drop:** Upgrade the Kanban board to use a library like `dnd-kit` for full physical drag-and-drop interactions.
+=======
+# devhire
+>>>>>>> 9eb71c2db39a919310ca56f9d6fc6e67029d3f0a
