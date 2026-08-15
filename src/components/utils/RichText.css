@@ -1,0 +1,35 @@
+.rich-text-container {
+  color: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.rich-text-container strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.rich-text-container em {
+  font-style: italic;
+}
+
+.md-code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--bg-secondary);
+  color: var(--accent-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--border-color);
+}
+
+.md-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.md-link:hover {
+  text-decoration: underline;
+}

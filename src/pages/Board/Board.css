@@ -1,0 +1,59 @@
+.board-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.board-header h2 {
+  font-size: var(--font-lg);
+  font-weight: 600;
+}
+
+.board-canvas {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+  flex: 1;
+  align-items: flex-start;
+}
+
+.add-column-btn {
+  flex-shrink: 0;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.add-column-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+/* Custom horizontal scrollbar for the board */
+.board-canvas::-webkit-scrollbar {
+  height: 8px;
+}
+.board-canvas::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: var(--radius-full);
+}

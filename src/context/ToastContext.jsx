@@ -1,57 +1,54 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import { Toast } from '../components/ui/Toast';
 
-const ToastContext = createContext();
+const ToastContext = createContext(null);
 
-export const useToast = () => {
+export function ToastProvider({ children }) {
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = useCallback((message, type = 'success') => {
+    const id = `toast-${Date.now()}-${Math.random()}`;
+    setToasts((prev) => [...prev, { id, message, type }]);
+  }, []);
+
+  const removeToast = useCallback((id) => {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
+  }, []);
+
+  return (
+    <ToastContext.Provider value={{ addToast }}>
+      {children}
+      {createPortal(
+        <div className="toast-container" style={{
+          position: 'fixed',
+          bottom: '24px',
+          right: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          zIndex: 9999
+        }}>
+          {toasts.map((toast) => (
+            <Toast 
+              key={toast.id} 
+              id={toast.id}
+              message={toast.message} 
+              type={toast.type} 
+              onClose={() => removeToast(toast.id)} 
+            />
+          ))}
+        </div>,
+        document.body
+      )}
+    </ToastContext.Provider>
+  );
+}
+
+export function useToast() {
   const context = useContext(ToastContext);
   if (!context) {
     throw new Error('useToast must be used within a ToastProvider');
   }
   return context;
-};
-
-export const ToastProvider = ({ children }) => {
-  const [toast, setToast] = useState(null);
-
-  const showToast = useCallback((message, duration = 3000) => {
-    setToast(message);
-    setTimeout(() => {
-      setToast(null);
-    }, duration);
-  }, []);
-
-  return (
-    <ToastContext.Provider value={{ showToast }}>
-      {children}
-      {toast && (
-        <div style={{
-          position: 'fixed',
-          bottom: '20px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          backgroundColor: 'var(--text-primary)',
-          color: 'var(--bg-primary)',
-          padding: '12px 24px',
-          borderRadius: '8px',
-          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          animation: 'slideUp 0.3s ease-out',
-          fontWeight: 500
-        }}>
-          {toast}
-          <style>
-            {`
-              @keyframes slideUp {
-                from { transform: translate(-50%, 100%); opacity: 0; }
-                to { transform: translate(-50%, 0); opacity: 1; }
-              }
-            `}
-          </style>
-        </div>
-      )}
-    </ToastContext.Provider>
-  );
-};
+}

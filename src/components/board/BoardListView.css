@@ -1,0 +1,89 @@
+.board-list-view {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-view-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+}
+
+.task-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.task-table th {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.task-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.task-row {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.task-row:hover {
+  background-color: var(--bg-hover);
+}
+
+.task-row:last-child td {
+  border-bottom: none;
+}
+
+.cell-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.task-row-title {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.task-row-comments {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.cell-assignee {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+}
+
+.unassigned {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: var(--font-sm);
+}
+
+.cell-date {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}

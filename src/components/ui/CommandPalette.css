@@ -1,0 +1,107 @@
+.palette-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15vh;
+  z-index: 9999;
+  animation: paletteFadeIn 0.15s ease;
+}
+
+.palette-content {
+  background-color: var(--bg-surface);
+  width: 100%;
+  max-width: 550px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--border-color);
+  overflow: hidden;
+  animation: paletteSlideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.palette-header {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.palette-search-icon {
+  color: var(--text-secondary);
+  margin-right: var(--space-3);
+}
+
+.palette-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: var(--font-md);
+}
+
+.palette-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.palette-hint {
+  font-size: 10px;
+  background-color: var(--bg-hover);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+}
+
+.palette-list {
+  list-style: none;
+  padding: var(--space-2);
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.palette-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.palette-item.selected {
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.palette-item-icon {
+  margin-right: var(--space-3);
+}
+
+.palette-item.selected .palette-item-icon {
+  color: var(--text-inverse);
+}
+
+.palette-empty {
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}
+
+@keyframes paletteFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes paletteSlideDown {
+  from { opacity: 0; transform: scale(0.98) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

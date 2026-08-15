@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.public-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-default);
+}
+
+.public-main {
+  flex: 1;
+}

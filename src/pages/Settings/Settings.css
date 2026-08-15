@@ -1,0 +1,95 @@
+.settings-container {
+  padding: var(--space-4);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.settings-header {
+  margin-bottom: var(--space-6);
+}
+
+.settings-header h2 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.settings-header p {
+  color: var(--text-secondary);
+}
+
+.settings-section {
+  margin-bottom: var(--space-6);
+}
+
+.settings-section-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-3);
+}
+
+.settings-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-row:last-child {
+  border-bottom: none;
+}
+
+.settings-row h4 {
+  font-size: var(--font-md);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.settings-description {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+/* Danger Zone */
+.danger-title {
+  color: var(--error);
+}
+
+.danger-card {
+  border-color: rgba(222, 53, 11, 0.3); /* Subtle error border */
+}
+
+.danger-text {
+  color: var(--error) !important;
+}
+
+.btn-danger {
+  background-color: transparent;
+  color: var(--error);
+  border: 1px solid var(--error);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: var(--error);
+  color: #fff;
+}

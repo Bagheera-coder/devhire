@@ -1,17 +1,34 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Navbar } from './Navbar/Navbar';
-import { Footer } from './Footer/Footer';
-import styles from './Layout.module.css';
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Sidebar } from "./Sidebar";
+import { Topbar } from "./Topbar";
+import { CommandPalette } from "../ui/CommandPalette";
+import "./Layout.css";
 
-export const Layout = () => {
+export function Layout() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div className={styles.layout}>
-      <Navbar />
-      <main className={styles.main}>
-        <Outlet />
+    <div className="layout-container">
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      
+      {/* Overlay for mobile when sidebar is open */}
+      {isSidebarOpen && (
+        <div 
+          style={{ position: "fixed", inset: 0, backgroundColor: "rgba(0,0,0,0.5)", zIndex: 40 }}
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
+      <main className="layout-main">
+        <Topbar onToggleSidebar={() => setIsSidebarOpen(true)} />
+        <div className="content-area">
+          <Outlet />
+        </div>
       </main>
-      <Footer />
+
+      {/* Global Command Palette */}
+      <CommandPalette />
     </div>
   );
-};
+}

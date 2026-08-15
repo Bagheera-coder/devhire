@@ -1,0 +1,98 @@
+.board-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-3);
+  flex: 1;
+  min-width: 200px;
+  max-width: 350px;
+}
+
+.search-icon {
+  color: var(--text-secondary);
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: var(--space-2) var(--space-2);
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.filter-controls {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-2) 0 var(--space-3);
+}
+
+.filter-icon {
+  color: var(--text-secondary);
+}
+
+.filter-select {
+  border: none;
+  background: transparent;
+  padding: var(--space-2) var(--space-2);
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  padding-right: var(--space-4); /* Space for custom arrow if needed */
+}
+
+.filter-select:focus {
+  color: var(--accent-primary);
+}
+
+optgroup {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-button:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}

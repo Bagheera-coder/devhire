@@ -1,0 +1,63 @@
+.board-column {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+}
+
+/* Visual feedback when a card is dragged over this column */
+.board-column.drag-over {
+  background-color: var(--bg-hover);
+  border: 2px dashed var(--accent-primary);
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  padding-bottom: var(--space-2);
+}
+
+.column-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.column-title {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.column-count {
+  background-color: var(--border-color);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+}
+
+.column-content {
+  padding: var(--space-2) var(--space-3) var(--space-3) var(--space-3);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Custom scrollbar for column content */
+.column-content::-webkit-scrollbar {
+  width: 6px;
+}
+.column-content::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: var(--radius-full);
+}
